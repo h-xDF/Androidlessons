@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add("menu1");
+        menu.add("menu1.");
         menu.add("menu2");
         menu.add("menu3");
         menu.add("menu4");
