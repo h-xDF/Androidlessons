@@ -11,7 +11,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView tv;
     CheckBox chb;
-    
+
+    // создание меню черех .xml
     /*public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.mymenu, menu);
         return super.onCreateOptionsMenu(menu);

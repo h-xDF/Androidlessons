@@ -1,6 +1,5 @@
 package com.example.p0121_logandmess;
 
-import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
