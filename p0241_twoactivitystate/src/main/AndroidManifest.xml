@@ -8,8 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ThreeActivity"></activity>
+        android:theme="@style/Theme.AppCompat.Dialog">
+        <!--android:theme="@style/AppTheme">-->
+
+        <activity android:name=".ThreeActivity"/>
         <activity android:name=".ActivityTwo" />
         <activity android:name=".MainActivity">
             <intent-filter>
