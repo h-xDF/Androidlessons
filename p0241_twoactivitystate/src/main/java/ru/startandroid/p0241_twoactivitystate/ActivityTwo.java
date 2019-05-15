@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class ActivityTwo extends AppCompatActivity implements View.OnClickListener {
-
     final String TAG = "States";
     Button btnActThree;
 
