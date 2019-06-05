@@ -15,8 +15,8 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     final String LOG_TAG = "myLogs";
 
-    Button btnAdd, btnRead, btnClear;
-    EditText etName, etEmail;
+    Button btnAdd, btnRead, btnClear, btnUpd, btnDel;
+    EditText etName, etEmail, etID;
 
     DBHelper dbHelper;
 
@@ -27,11 +27,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         etName = findViewById(R.id.etName);
         etEmail = findViewById(R.id.etEmail);
+        etID = findViewById(R.id.etID);
 
+        btnUpd = findViewById(R.id.btnUpd);
+        btnDel = findViewById(R.id.btnDel);
         btnAdd = findViewById(R.id.btnAdd);
         btnRead = findViewById(R.id.btnRead);
         btnClear = findViewById(R.id.btnClear);
 
+        btnUpd.setOnClickListener(this);
+        btnDel.setOnClickListener(this);
         btnAdd.setOnClickListener(this);
         btnRead.setOnClickListener(this);
         btnClear.setOnClickListener(this);
@@ -46,12 +51,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // получаем данные из полей ввода
         String name = etName.getText().toString();
         String email = etEmail.getText().toString();
+        String id = etID.getText().toString();
 
         SQLiteDatabase db = dbHelper.getWritableDatabase(); // подключаемся к БД
 
         switch (v.getId()) {
+            case R.id.btnUpd:
+                if (id.equalsIgnoreCase("")) {
+                    break; //todo надо вывести хотя бы тост?
+                }
+                Log.d(LOG_TAG, "--- Update mytable: ---");
+                cv.put("name", name);
+                cv.put("email", email);
+
+                int updCount = db.update("mytable", cv, "id = ?",
+                        new String[] { id });
+
+                Log.d(LOG_TAG, "updated rows count = " + updCount);
+                break;
+            case R.id.btnDel:
+                if (id.equalsIgnoreCase("")) {
+                    break;
+                }
+                Log.d(LOG_TAG, "--- Delete from mytable: ---");
+                int delCount = db.delete("mytable", "id = " + id, null);
+                Log.d(LOG_TAG, "deleted rows count = " + delCount);
+                break;
             case R.id.btnAdd:
-                Log.d(LOG_TAG, "-- insert in mytable: --");
+                Log.d(LOG_TAG, "-- Insert in mytable: --");
                 cv.put("name", name);
                 cv.put("email", email);
                 long rowID = db.insert("mytable", null, cv);
