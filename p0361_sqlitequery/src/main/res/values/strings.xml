@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SQLiteQuery</string>
+    <string name="dirCountryRU">Справочник стран</string>
+    <string name="allString">Все записи</string>
+    <string name="fun">Функция</string>
+    <string name="population">Население</string>
+    <string name="region">Регион</string>
+    <string name="sort">Сортировка</string>
+    <string name="populationOnRegion">Население по региону</string>
+    <string name="populationOnRegionS"><![CDATA[Население по региону >]]></string>
+    <string name="name">Наименование</string>
+</resources>
